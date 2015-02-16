@@ -3,10 +3,7 @@
             [om.dom :as dom :include-macros true]
             [ff-om-draggable.core :refer [draggable-item]]))
 
-(def app-state (atom {:people [{:name "Cosby" :avatar "images/cosby.png" :position {:left 865 :top 173}}
-                               {:name "Jordan" :avatar "images/jordan.png" :position {:left 499 :top 168}}
-                               {:name "Uncle Neo" :avatar "images/neo.png" :position {:left 286 :top 170}}
-                               {:name "Chappelle" :avatar "images/chappelle.png" :position {:left 694 :top 190}}]}))
+(def app-state (atom {:people [{:name "Drag Me" :avatar "images/felixflores.png" :position {:left 500 :top 200}}]}))
 
 (defn person-view
   [person owner]
@@ -25,7 +22,7 @@
   (reify
     om/IRender
     (render [_]
-      (apply dom/div #js  {:id "celebrities"}
+      (apply dom/div #js  {:id "people"}
              (om/build-all draggable-person-view (app :people))))))
 
 (om/root
